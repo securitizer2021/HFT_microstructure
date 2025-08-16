@@ -93,18 +93,14 @@
 <!-- CONTACT US FOR EVALUATION -->
 <section id="model" class="bg-gray-800 text-center py-16">
   <h2 class="text-3xl font-bold mb-4">Contact Us for Evaluation & Results</h2>
-  <p class="max-w-2xl mx-auto text-gray-300 mb-8">
-    Interested in deeper performance metrics and microstructure analytics?
-    Submit your info below and we'll send you the full evaluation report.
+  <p class="max-w-2xl mx-auto text-gray-300 mb-6">
+    Interested in deeper performance metrics and microstructure analytics?<br/>
+    You can:
   </p>
-  <form id="evaluationForm" class="max-w-md mx-auto px-4">
-    <input type="text" name="name" placeholder="Your Name" required class="w-full mb-3 p-3 rounded-md" />
-    <input type="text" name="company" placeholder="Company Name" class="w-full mb-3 p-3 rounded-md" />
-    <input type="email" name="email" placeholder="Email Address" required class="w-full mb-3 p-3 rounded-md" />
-    <input type="tel" name="phone" placeholder="Phone Number" class="w-full mb-3 p-3 rounded-md" />
-    <textarea name="note" rows="4" placeholder="Your Message or Request" class="w-full mb-4 p-3 rounded-md"></textarea>
-    <button type="submit" class="btn">Send</button>
-  </form>
+  <p class="max-w-2xl mx-auto text-gray-300">
+    • Email us at <a href="mailto:info@quantumyield.ai" class="text-blue-400 underline">info@quantumyield.ai</a><br/>
+    • Or book a meeting directly via <a href="https://calendly.com/jason-huang-quantumyield/30min" target="_blank" class="text-blue-400 underline">Calendly</a>
+  </p>
 </section>
 
 <!-- FOOTER -->
@@ -184,48 +180,6 @@
     }
 
     animate();
-  });
-</script>
-
-<script>
-  const evalForm = document.getElementById("evaluationForm");
-
-  evalForm?.addEventListener("submit", async function (e) {
-    e.preventDefault();
-
-    const data = new FormData(evalForm);
-    const formFields = {
-      name: data.get("name"),
-      company: data.get("company"),
-      email: data.get("email"),
-      phone: data.get("phone"),
-      note: data.get("note")
-    };
-
-    try {
-      const response = await fetch("https://microstructure.quantumyield.ai/api/contact-eval-request", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          subject: "HFT microstructure inquiry",
-          recipient: "info@quantumyield.ai",
-          user_info: formFields
-        })
-      });
-
-      if (response.ok) {
-        alert("✅ Thank you! We’ll get back to you with detailed results shortly.");
-        evalForm.reset();
-      } else {
-        const error = await response.json();
-        alert("❌ Submission failed:\n" + (error.message || "Please try again later."));
-      }
-    } catch (err) {
-      console.error("🚨 Error submitting form:", err);
-      alert("🚫 Network or server error. Please try again.");
-    }
   });
 </script>
 
