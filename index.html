@@ -69,19 +69,19 @@
 </section>
 
 <!-- MODEL OVERVIEW -->
-<section id="model" class="bg-gray-800 text-center">
+<section id="model" class="bg-gray-800 text-center py-16">
   <h2 class="text-3xl font-bold mb-4">Model Training Overview</h2>
   <p class="max-w-3xl mx-auto text-gray-300">
-    Our forecasting engine is powered by a deep LSTM architecture with dropout regularization, trained on high-frequency market data. It supports two complementary modes: <strong>classification</strong> for directional prediction (up, flat, down) and <strong>regression</strong> for estimating price deltas in basis points (bp).
+    Our forecasting engine leverages a deep LSTM architecture with dropout regularization, trained on high-frequency market data. It supports <strong>classification</strong> to detect directional movement (up, flat, down) using configurable price thresholds, and <strong>regression</strong> to predict mid-price deltas in basis points.
   </p>
   <p class="max-w-3xl mx-auto text-gray-300 mt-4">
-    Temporal sequences span hundreds of events to capture evolving order flow and liquidity dynamics. Prediction horizons are tailored to anticipate forward moves before market impact fully materializes.
+    Temporal sequences span hundreds of market events to capture evolving order flow and liquidity dynamics. Prediction horizons are optimized to forecast meaningful moves ahead of market response. Training labels and signal sensitivity are aligned with strategy-specific goals—such as reactions to macro events, filtered time windows, or trading session regimes.
   </p>
   <p class="max-w-3xl mx-auto text-gray-300 mt-4">
-    Model tuning is guided by Bayesian optimization, which automatically selects the optimal combination of network size, memory depth, dropout, batch size, and learning rate. This achieves the best trade-off between fast reactivity and robust generalization under noisy conditions.
+    This <strong>Strategy-Aligned Customization</strong> ensures the model tailors its lookback windows, forecast horizons, and thresholds to match the decision cadence and risk appetite of specific trading styles.
   </p>
   <p class="max-w-3xl mx-auto text-gray-300 mt-4">
-    For classification, training labels are derived from price movements exceeding a configurable threshold (e.g., ±0.75 bp), enabling the model to detect subtle but meaningful shifts. In regression mode, the model directly learns to forecast mid-price changes in bp.
+    Hyperparameters—including network size, memory depth, dropout, and learning rate—are tuned using Bayesian optimization for optimal performance under noisy real-world conditions.
   </p>
 </section>
 
